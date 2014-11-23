@@ -857,6 +857,11 @@ public class INTERFACE_main {
 			public void actionPerformed(ActionEvent e){
 				TelaCadCliente.setVisible(true);
 				TelaCadVeiculo.setVisible(false);
+				TelaConsultarVeiculo.setVisible(false);
+				TelaLogin.setVisible(false);
+				TelaMenu.setVisible(false);
+				TelaExibirVeiculos.setVisible(false);
+				ConsultarCliente.setVisible(false);
 			}
 		});
 		btnCadastrarCliente.setBounds(0, 110, 200, 42);
