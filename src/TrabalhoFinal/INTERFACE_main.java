@@ -21,11 +21,11 @@ import javax.swing.JTextField;
 
 public class INTERFACE_main {
 
-	private JFrame TelaLogin, TelaMenu, TelaCadVeiculo, TelaConsultarVeiculo, TelaExibirVeiculos, TelaCadCliente, ConsultarCliente, TelaVender;
+	private JFrame TelaLogin, TelaMenu, TelaCadVeiculo, TelaConsultarVeiculo, TelaExibirVeiculos, TelaCadCliente, ConsultarCliente;
 	private JList<String> list;
 	private DefaultListModel<String> model;
 	private JPasswordField passwordField;
-	private JTextField ruaCliente, bairroCliente, cidadeCliente, numeroCliente, estadoCliente, txtDigiteASenha, cadModeloVeiculo, cadMarcaVeiculo, cadNomeVeiculo, cadAnoVeiculo, cadPrecoVeiculo, consulModelo, consulCodigo, nomeCliente, cpfCliente, emailCliente, telCliente, idadeCliente, codVeiculo;
+	private JTextField ruaCliente, bairroCliente, cidadeCliente, numeroCliente, estadoCliente, txtDigiteASenha, cadModeloVeiculo, cadMarcaVeiculo, cadNomeVeiculo, cadAnoVeiculo, cadPrecoVeiculo, consulModelo, consulCodigo, nomeCliente, cpfCliente, emailCliente, telCliente, idadeCliente;
 	Vendedor vendedor = new Vendedor();
 
 	/**
@@ -40,7 +40,6 @@ public class INTERFACE_main {
 					window.TelaMenu.setVisible(false);
 					window.TelaCadVeiculo.setVisible(false);
 					window.TelaConsultarVeiculo.setVisible(false);
-					window.TelaVender.setVisible(false);
 					window.TelaExibirVeiculos.setVisible(false);
 					window.TelaCadCliente.setVisible(false);
 					//window.ConsultarCliente.setVisible(false);
@@ -99,13 +98,6 @@ public class INTERFACE_main {
 		TelaExibirVeiculos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		TelaExibirVeiculos.getContentPane().setLayout(null);
 		
-		TelaVender = new JFrame();
-		TelaVender.setTitle("Vender Veiculo");
-		TelaVender.setResizable(false);
-		TelaVender.setBounds(201, 0, 400, 300);
-		TelaVender.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		TelaVender.getContentPane().setLayout(null);
-		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBounds(10, 10, 490, 790);
@@ -126,41 +118,7 @@ public class INTERFACE_main {
 		///////////////////////////////////////////////////////////////////////////////////////////////
 		/////////////////////////////////////CAIXAS DE TEXTO//////////////////////////////////////////
 		
-		codVeiculo = new JTextField();
-		codVeiculo.setText("Digite o código do carro");
-		codVeiculo.setToolTipText("Digite o codigo único de cada carro");
-		codVeiculo.addMouseListener(new MouseListener() {
-			
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				codVeiculo.setText("");
-			}
-		});
-		
+		//----------------------------------------------Cliente
 		numeroCliente = new JTextField();
 		numeroCliente.setText("Digite o numero da casa do Cliente");
 		numeroCliente.setToolTipText("Digite o numero da casa do Cliente");
@@ -592,6 +550,7 @@ public class INTERFACE_main {
 		consulCodigo.setBounds(5, 5, 190, 42);
 		TelaConsultarVeiculo.getContentPane().add(consulCodigo);
 		
+		//-----------------------------------------Veiculo
 		cadAnoVeiculo = new JTextField();
 		cadAnoVeiculo.setText("Digite o ano do veiculo");
 		cadAnoVeiculo.setToolTipText("Digite o ano do veiculo");
@@ -625,7 +584,7 @@ public class INTERFACE_main {
 				
 			}
 		});
-		cadAnoVeiculo.setBounds(5, 190, 490, 42);
+		cadAnoVeiculo.setBounds(5, 150, 490, 42);
 		cadAnoVeiculo.setColumns(70);
 		TelaCadVeiculo.getContentPane().add(cadAnoVeiculo);
 		
@@ -662,48 +621,9 @@ public class INTERFACE_main {
 				
 			}
 		});
-		cadPrecoVeiculo.setBounds(5, 150, 490, 42);
+		cadPrecoVeiculo.setBounds(5, 190, 490, 42);
 		cadPrecoVeiculo.setColumns(70);
 		TelaCadVeiculo.getContentPane().add(cadPrecoVeiculo);
-		
-		cadNomeVeiculo  = new JTextField();
-		cadNomeVeiculo.setText("Digite o nome do veiculo");
-		cadNomeVeiculo.setToolTipText("Digite o nome do veiculo");
-		cadNomeVeiculo.addMouseListener(new MouseListener(){
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				cadNomeVeiculo.setText("");
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-		});
-		cadNomeVeiculo.setBounds(5, 110, 490, 42);
-		TelaCadVeiculo.getContentPane().add(cadNomeVeiculo);
 		
 		cadModeloVeiculo = new JTextField();
 		cadModeloVeiculo.setText("Digite o modelo do veiculo");
@@ -738,7 +658,7 @@ public class INTERFACE_main {
 				
 			}
 		});
-		cadModeloVeiculo.setBounds(5, 30, 490, 42);
+		cadModeloVeiculo.setBounds(5, 110, 490, 42);
 		cadModeloVeiculo.setColumns(70);
 		TelaCadVeiculo.getContentPane().add(cadModeloVeiculo);
 		
@@ -775,9 +695,48 @@ public class INTERFACE_main {
 				
 			}
 		});
-		cadMarcaVeiculo.setBounds(5, 70, 490, 42);
+		cadMarcaVeiculo.setBounds(5, 30, 490, 42);
 		cadMarcaVeiculo.setColumns(70);
 		TelaCadVeiculo.getContentPane().add(cadMarcaVeiculo);
+		
+		codVeiculo = new JTextField();
+		codVeiculo.setText("Código do Veículo ");
+		codVeiculo.setToolTipText("Código do veículo");
+		codVeiculo.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				codVeiculo.setText("");
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		codVeiculo.setBounds(5, 230, 490, 42);
+		codVeiculo.setColumns(25);
+		TelaCadVeiculo.getContentPane().add(codVeiculo);
 		
 		passwordField = new JPasswordField();
 		final String senha = "coffee";
@@ -875,27 +834,17 @@ public class INTERFACE_main {
 				}
 			}
 		});
-btnOkLogin.setBounds(67, 92, 109, 42);
+		btnOkLogin.setBounds(67, 92, 109, 42);
 		TelaLogin.getContentPane().add(btnOkLogin);
 		
-		JButton btnVender = new JButton("Vender veÃ­culo");
+		JButton btnVender = new JButton("Vender veículo");
 		btnVender.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				TelaVender.setVisible(true);	
-			}
-		});
-		btnVender.setBounds(0, 10, 200, 42);
-		TelaMenu.getContentPane().add(btnVender);
-		
-
-		JButton btnVTelaVender = new JButton("Vender");
-		btnVTelaVender.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				
 			}
 		});
-		btnVTelaVender.setBounds(145, 200, 120, 42);
-		TelaVender.getContentPane().add(btnVTelaVender);
+		btnVender.setBounds(0, 10, 200, 42);
+		TelaMenu.getContentPane().add(btnVender);
 		
 		JButton btnCadastrarVeiculo = new JButton("Cadastrar Veículo");
 		btnCadastrarVeiculo.addActionListener(new ActionListener(){
